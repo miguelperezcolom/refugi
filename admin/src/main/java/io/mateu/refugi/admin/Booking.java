@@ -1,6 +1,7 @@
 package io.mateu.refugi.admin;
 
 import io.mateu.erp.client.booking.TransfersSummaryView;
+import io.mateu.erp.model.booking.hotel.HotelService;
 import io.mateu.erp.model.booking.transfer.TransferPointMapping;
 import io.mateu.erp.model.booking.transfer.TransferService;
 import io.mateu.ui.core.client.app.AbstractAction;
@@ -22,15 +23,7 @@ public class Booking extends AbstractModule {
     public List<MenuEntry> getMenu() {
         List<MenuEntry> m = new ArrayList<>();
 
-        m.add(new AbstractAction("Transfers summary") {
-            @Override
-            public void run() {
-                MateuUI.openView(new TransfersSummaryView());
-            }
-        });
-        m.add(new MDDAction("Bookings", TransferService.class));
-
-        m.add(new MDDAction("Mapping", TransferPointMapping.class));
+        m.add(new MDDAction("Bookings", HotelService.class));
 
         return m;
     }
